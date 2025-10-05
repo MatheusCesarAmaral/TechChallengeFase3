@@ -1,11 +1,11 @@
 # TechChallenge3 • Pipeline de Dados (AWS + Power BI)
 
-> **Objetivo**  
-> Construir uma pipeline de dados que parte de uma camada **SOR** (Source of Records) no Amazon **S3**, aplicar transformações com **AWS Glue**, carregar dados harmonizados na **SOT** (Source of Truth) também no S3, carregar os dados tratados da SOT em um **RDS** (banco relacional) através do **AWS Glue** e disponibilizaz para análise no **Power BI**.
+> **Objetivo:**  
+> Construir uma pipeline de dados que parte de uma camada **SOR** (Source of Records) no Amazon **S3**, aplicar transformações com **AWS Glue**, carregar dados harmonizados na **SOT** (Source of Truth) também no S3, carregar os dados tratados da SOT em um **RDS** (banco relacional) através do **AWS Glue** e disponibilizar para análise no **Power BI**.
 
 ---
 
-## Arquitetura:
+## Arquitetura
 
 ![Arquitetura](docs/pipeline_dados.png)
 
@@ -20,23 +20,6 @@ Fluxo (da esquerda para a direita):
 
 ---
 
-## Stack
-
-- **AWS S3** (data lake – zonas `sor/` e `sot/`)  
-- **AWS Glue** (Jobs de ETL em PySpark + Crawlers + Data Catalog)  
-- **AWS RDS** (PostgreSQL)  
-- **Power BI**  
-- **Python 3.10+**
-
-### Estrutura do Repositório
-
-- `docs/pipeline_dados.png` — diagrama da solução  
-- `docs/Depara.xlsx` — mapeamentos (*de/para*) usados no ETL  
-- `src/glue_jobs/glue_sor_to_sot.py` — Job Glue 1  
-- `src/glue_jobs/glue_sot_to_rds.py` — Job Glue 2  
-- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS  
-
----
 ## De/Para (Mapeamento PNAD → SOT)
 
 O arquivo [`docs/Depara.xlsx`](docs/Depara.xlsx) contém o mapeamento das colunas originais da PNAD para os nomes padronizados da camada **SOT**.  
@@ -66,3 +49,39 @@ Esse mapeamento é aplicado no **ETL (Glue)** para garantir consistência semân
 | bolsa_familia         | C003                | Recebeu bolsa família |
 
 > 🔎 Esse **De/Para** é essencial para normalizar os dados antes de carregar no **SOT** e posteriormente no **RDS**, permitindo análises consistentes no Power BI.
+
+---
+
+## Diagrama da Tabela
+
+![Diagrama](docs/sot.png)
+
+A tabela **SOT** possui **20 variáveis**, distribuídas em grupos:
+
+- **4 variáveis de caracterização da pessoa** (sexo, idade, escolaridade, situação do domicílio).  
+- **5 variáveis de sintomas clínicos** da população (febre, tosse, dificuldade de respirar, fadiga, perda de olfato/paladar).  
+- **5 variáveis de comportamento da população** durante a pandemia (procurou atendimento, internação, uso do SUS, uso de hospital privado, sedado/entubado).  
+- **3 variáveis econômicas** (auxílio emergencial, seguro desemprego, bolsa família).  
+- **3 variáveis de partição** (ano, mês, UF).  
+
+---
+
+## Stack
+
+- **AWS S3** (data lake – zonas `sor/` e `sot/`)  
+- **AWS Glue** (Jobs de ETL em PySpark + Crawlers + Data Catalog)  
+- **AWS RDS** (PostgreSQL)  
+- **Power BI**  
+- **Python 3.10+**
+
+---
+
+## Estrutura do Repositório
+
+- `docs/pipeline_dados.png` — diagrama da solução  
+- `docs/Depara.xlsx` — mapeamentos (*de/para*) usados no ETL  
+- `src/glue_jobs/glue_sor_to_sot.py` — Job Glue 1 (SOR → SOT)  
+- `src/glue_jobs/glue_sot_to_rds.py` — Job Glue 2 (SOT → RDS)  
+- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS  
+
+---
