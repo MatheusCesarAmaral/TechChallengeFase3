@@ -1,0 +1,22 @@
+CREATE TABLE sot (
+	situacao_domicilio varchar(20),
+	sexo varchar(15),
+	escolaridade varchar(40),
+	faixa_idade varchar(10),
+	febre varchar(15),
+	tosse varchar(15),
+	dificuldade_respirar varchar(15),
+	perda_olfato_paladar varchar(20),
+	fadiga varchar(15),
+	procurou_atendimento varchar(30),
+	atendimento_sus_hospital varchar(30),
+	atendimento_priv_hospital varchar(30),
+	internacao varchar(15),
+	sedado_entubado varchar(15),
+	auxilio_emergencial varchar(20),
+	seguro_desemprego varchar(20),
+	bolsa_familia varchar(20),
+	ano int4,
+	mes int4,
+	uf_sigla varchar(2)
+);  
