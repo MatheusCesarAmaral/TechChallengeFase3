@@ -19,24 +19,6 @@ Fluxo (da esquerda para a direita):
 6. **Power BI** – relatórios/dashboards conectados ao RDS.
 
 ---
-
-## Stack
-
-- **AWS S3** (data lake – zonas `sor/` e `sot/`)  
-- **AWS Glue** (Jobs de ETL em PySpark + Crawlers + Data Catalog)  
-- **AWS RDS** (PostgreSQL)  
-- **Power BI**  
-- **Python 3.10+**
-
-### Estrutura do Repositório
-
-- `docs/pipeline_dados.png` — diagrama da solução  
-- `docs/Depara.xlsx` — mapeamentos (*de/para*) usados no ETL  
-- `src/glue_jobs/glue_sor_to_sot.py` — Job Glue 1  
-- `src/glue_jobs/glue_sot_to_rds.py` — Job Glue 2  
-- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS  
-
----
 ## De/Para (Mapeamento PNAD → SOT)
 
 O arquivo [`docs/Depara.xlsx`](docs/Depara.xlsx) contém o mapeamento das colunas originais da PNAD para os nomes padronizados da camada **SOT**.  
@@ -66,3 +48,26 @@ Esse mapeamento é aplicado no **ETL (Glue)** para garantir consistência semân
 | bolsa_familia         | C003                | Recebeu bolsa família |
 
 > 🔎 Esse **De/Para** é essencial para normalizar os dados antes de carregar no **SOT** e posteriormente no **RDS**, permitindo análises consistentes no Power BI.
+
+---
+## Diagrama da Tabela:
+
+![Diagrama](docs/sot.png)
+
+---
+
+## Stack
+
+- **AWS S3** (data lake – zonas `sor/` e `sot/`)  
+- **AWS Glue** (Jobs de ETL em PySpark + Crawlers + Data Catalog)  
+- **AWS RDS** (PostgreSQL)  
+- **Power BI**  
+- **Python 3.10+**
+
+### Estrutura do Repositório
+
+- `docs/pipeline_dados.png` — diagrama da solução  
+- `docs/Depara.xlsx` — mapeamentos (*de/para*) usados no ETL  
+- `src/glue_jobs/glue_sor_to_sot.py` — Job Glue 1  
+- `src/glue_jobs/glue_sot_to_rds.py` — Job Glue 2  
+- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS  
