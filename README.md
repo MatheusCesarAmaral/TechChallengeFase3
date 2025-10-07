@@ -103,3 +103,8 @@ A tabela **SOT** possui **20 variáveis**, distribuídas em grupos:
 - `Relatórios/Tech Challenge 3.pbix` — Dashboard
 
 ---
+
+### Repositório do Projeto
+
+Todo o código-fonte, scripts de ETL (AWS Glue), diagramas de arquitetura e relatórios analíticos estão disponíveis publicamente no GitHub:  
+👉 [https://github.com/MatheusCesarAmaral/TechChallengeFase3](https://github.com/MatheusCesarAmaral/TechChallengeFase3)
