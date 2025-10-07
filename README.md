@@ -7,7 +7,7 @@
 
 ## Arquitetura
 
-![Arquitetura](docs/pipeline_dados.png)
+![Arquitetura](docs/img/pipeline_dados.png)
 
 Fluxo (da esquerda para a direita):
 
@@ -17,6 +17,23 @@ Fluxo (da esquerda para a direita):
 4. **Glue – Ingestão** – *upsert* no banco relacional (RDS) via JDBC.  
 5. **RDS** – modelo relacional para BI.  
 6. **Power BI** – relatórios/dashboards conectados ao RDS.
+
+---
+
+## Resultados Analíticos (Power BI)
+
+Abaixo seguem algumas visualizações criadas a partir dos dados tratados no pipeline (SOR → SOT → RDS) e modelados no Power BI:
+
+### Panorama Clínico e Casos Sintomáticos
+![Dashboard 1](docs/img/powerbi_dashboard1.png)
+
+### Comportamento frente ao Atendimento
+![Dashboard 2](docs/img/powerbi_dashboard2.png)
+
+### Benefícios Socioeconômicos e Atendimento Hospitalar
+![Dashboard 3](docs/img/powerbi_dashboard3.png)
+
+> O relatório interativo completo pode ser acessado através do [link do Power BI](https://app.powerbi.com/links/IgZ_h5F9Cj?ctid=11dbbfe2-89b8-4549-be10-cec364e59551&pbi_source=linkShare).
 
 ---
 
@@ -54,7 +71,7 @@ Esse mapeamento é aplicado no **ETL (Glue)** para garantir consistência semân
 
 ## Diagrama da Tabela
 
-![Diagrama](docs/sot.png)
+![Diagrama](docs/img/sot.png)
 
 A tabela **SOT** possui **20 variáveis**, distribuídas em grupos:
 
