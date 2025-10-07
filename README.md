@@ -82,6 +82,7 @@ A tabela **SOT** possui **20 variáveis**, distribuídas em grupos:
 - `docs/Depara.xlsx` — mapeamentos (*de/para*) usados no ETL  
 - `src/glue_jobs/glue_sor_to_sot.py` — Job Glue 1 (SOR → SOT)  
 - `src/glue_jobs/glue_sot_to_rds.py` — Job Glue 2 (SOT → RDS)  
-- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS  
+- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS
+- `Relatórios/Tech Challenge 3.pbix` — Dashboard
 
 ---
