@@ -15,7 +15,7 @@ Fluxo (da esquerda para a direita):
 2. **Glue – ETL** – limpeza, padronização, *de/para*, *dedup*, enriquecimentos.  
 3. **SOT (S3)** – dados prontos para consumo analítico/ingestão.  
 4. **Glue – Ingestão** – *upsert* no banco relacional (RDS) via JDBC.  
-5. **RDS** – modelo relacional para BI (tabelas fato/dim).  
+5. **RDS** – modelo relacional para BI.  
 6. **Power BI** – relatórios/dashboards conectados ao RDS.
 
 ---
@@ -80,9 +80,9 @@ A tabela **SOT** possui **20 variáveis**, distribuídas em grupos:
 
 - `docs/pipeline_dados.png` — diagrama da solução  
 - `docs/Depara.xlsx` — mapeamentos (*de/para*) usados no ETL  
-- `src/glue_jobs/glue_sor_to_sot.py` — Job Glue 1 (SOR → SOT)  
-- `src/glue_jobs/glue_sot_to_rds.py` — Job Glue 2 (SOT → RDS)  
-- `src/sql/rds_ddl.sql` — DDL para criar o esquema no RDS
+- `scripts/glue_sor_to_sot.py` — Job Glue 1 (SOR → SOT)  
+- `scripts/glue_sot_to_rds.py` — Job Glue 2 (SOT → RDS)  
+- `sql/rds_ddl.sql` — DDL para criar o esquema no RDS
 - `Relatórios/Tech Challenge 3.pbix` — Dashboard
 
 ---
