@@ -24,13 +24,13 @@ Fluxo (da esquerda para a direita):
 
 Abaixo seguem algumas visualizações criadas a partir dos dados tratados no pipeline (SOR → SOT → RDS) e modelados no Power BI:
 
-### Panorama Clínico e Casos Sintomáticos
+### Panorama Clínico e Casos Sintomáticos:
 ![Dashboard 1](docs/img/powerbi_dashboard1.png)
 
-### Comportamento frente ao Atendimento
+### Comportamento frente ao Atendimento:
 ![Dashboard 2](docs/img/powerbi_dashboard2.png)
 
-### Benefícios Socioeconômicos e Atendimento Hospitalar
+### Benefícios Socioeconômicos e Atendimento Hospitalar:
 ![Dashboard 3](docs/img/powerbi_dashboard3.png)
 
 > O relatório interativo completo pode ser acessado através do [link do Power BI](https://app.powerbi.com/links/IgZ_h5F9Cj?ctid=11dbbfe2-89b8-4549-be10-cec364e59551&pbi_source=linkShare).
